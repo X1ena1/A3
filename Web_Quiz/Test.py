@@ -1,8 +1,10 @@
 # Quiz app using Flask 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
+import random
 import json
 
 app = Flask(__name__)
+app.sercret_key = 'secret_key'  #Chagbt helping me provide an effective way to track score
 
 @app.route("/")
 def home():
@@ -12,28 +14,37 @@ def home():
 def quiz():
     global question_num, score
 
+    question_num = session["question"]
+
     if request.method == 'POST':
-        # Logic to capture the user’s answers and redirect to the result page
-        score += 1
-        return redirect(url_for('result',score=score))
+        # Get the user's selected answer(s)
+        selected_answer = request.form.get('options')
+        current_question = questions[question_num]
+
+
+    if selected_answer == current_question['answer']:
+        session['score'] += 1
+    else:
+        score += 0
+
+    #Move onto the next question
+    session['question_num'] += 1
+
+    if session[question_num] >= len(questions):
+        return redirect(url_for('result'))
     
-    # Load the question and options to display
-    question_num += 1
-    return render_template('quiz.html', num=question_num,
-                           question=question_list[question_num-1][0], 
-                            options=question_list[question_num-1][1])  # Displays the question and options
+    return redirect(url_for('quiz'))
 
-
+#grabbing result and score
 @app.route('/result')
 def result():
     global score
-    
+    score = session.get('score', 0)
     return render_template('result.html', score=score)
 
 # Load the question file and convert it to a list
-question_file = open("ques.json")
-questions = json.load(question_file)
-question_list = list(questions.items())
+with open("ques.json") as question_file:
+    questions = json.load(question_file)
 
 # Create some housekeeping variables
 score = 0
