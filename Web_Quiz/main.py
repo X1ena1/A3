@@ -1,4 +1,4 @@
-# Quiz app using Flask 
+# Quiz app using Flask
 from flask import Flask, render_template, request, redirect, url_for, session
 import random
 import json
