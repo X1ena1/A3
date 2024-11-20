@@ -9,6 +9,20 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        userid = request.form.get('username')
+        userpass = request.form.get('password')
+
+        # Check the username and password. If successful, take the user to the success page.
+        if USERS.get(userid) == userpass:
+            return redirect(url_for('success', username=userid))
+        else:
+            return("Sorry bud")
+    else:    
+        return render_template('login.html')
+
 @app.route('/success/<username>')
 def success(username):
     return render_template('success.html', username=username)

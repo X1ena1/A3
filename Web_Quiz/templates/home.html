@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the Quiz</title>
-    <link rel="stylesheet" href="../templates/css/main.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" type="text/css">
 </head>
 <body>
     <div class="hero">
-        <h1>Welcome Movie Mayhem!</h1>
+        <h1>Welcome to Movie Mayhem!</h1>
+        <div class="static-img"> 
+        </div>
             <nav>
                 <ul>
-                    <li><a href="{{ url_for('quiz') }}">Start Quiz</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="sign.html">Sign Up</a></li>
+                    <button><li><a href="{{ url_for('quiz') }}" class="button">Start Quiz</a></li></button>
+                    <button><li><a href="login.html" class="button">Login</a></li></button>
+                    <button><li><a href="sign.html" class="button">Sign Up</a></li></button>
                 </ul>
             </nav>
     </div>       

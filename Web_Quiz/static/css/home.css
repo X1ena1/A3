@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.hero h1{
+    position:initial;
+    color: #fff;
+    font-size: 75px;
+    margin-top: 12%;
+}
+
+.hero{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #000;
+    background-image: url('/static/img/bluescreen.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: fixed ;
+    color: #fff;
+    padding: 0 8%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 30px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul button{
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    appearance: auto;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 14px 70px;
+    color: white;
+    background-color: var(--clr-rgba);
+    border: 2px solid #fff;
+    border-color: var(--clr-rgba);
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-10px);
+    background-color: var(--clr-rgba);
+    color: var(--clr-rgba);
+}

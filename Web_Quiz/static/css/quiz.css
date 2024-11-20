@@ -1,0 +1,21 @@
+/* quiz.css */
+body {
+    background-color: lightslategray;
+    font-weight: 100vh;
+}
+
+h2 {
+    color: maroon;
+    display: flex;
+    justify-content: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:xx-large;
+    align-items: center;
+    min-height: 100vh;
+}
+
+input {
+    justify-content: center;
+    align-items: center;
+    display:grid;
+}

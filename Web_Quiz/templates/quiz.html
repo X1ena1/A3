@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <title>Quiz</title>
-    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}" type="text/css">
 </head>
+
 <body>
     <h2>{{ question }}</h2>
     <form method="POST">
