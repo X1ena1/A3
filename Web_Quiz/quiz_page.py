@@ -4,25 +4,10 @@ import random
 import json
 
 app = Flask(__name__)
-app.secret_key = 'secret_key'  # This is required for Flask to handle sessions
 
 @app.route("/")
 def home():
     return render_template('home.html')
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        userid = request.form.get('username')
-        userpass = request.form.get('password')
-        # Check the username and password. If successful, take the user to the success page.
-        
-        if USERS.get(userid) == userpass:
-            return redirect(url_for('success', username=userid))
-        else:
-            return("Sorry bud")
-    else:    
-        return render_template('login.html')
 
 @app.route('/success/<username>')
 def success(username):
@@ -35,35 +20,40 @@ USERS = {"port": "port123",
 def quiz():
     global question_num, score
 
-    question_num = session['question_num']
+    #Check if not previously started and is continue
+    if question_num >= len(questions):
+        return redirect(url_for('result'))
+
+        #Grabbing the current question
+    current_question = questions[question_num]
 
     if request.method == 'POST':
         # Get the user's selected answer(s)
         selected_answer = request.form.get('options')
-        current_question = questions[question_num]
 
+        if selected_answer == current_question['answer']:
+            score += 1
 
-    if selected_answer == current_question['answer']:
-        session['score'] += 1
-    else:
-        score += 0
+        # Move to the next question
+        question_num += 1
 
-    #Move onto the next question
-    session['question_num'] += 1
+        # Redirect to the next question
+        return redirect(url_for('quiz'))
 
-    if session[question_num] >= len(questions):
-        return redirect(url_for('result'))
-    
-    return redirect(url_for('quiz'))
+    # Render the quiz question and options
+    return render_template('quiz.html', num=question_num + 1,  # Show 1-based index
+                           question=current_question['question'], 
+                           options=current_question['options'], 
+                           score=score)
 
 #grabbing result and score
 @app.route('/result')
 def result():
-    global score
-    score = session.get('score', 0)
-    return render_template('result.html', score=score)
+    global score, question_num
 
-# Load the question file and convert it to a list
+    return render_template('result.html', score=score, num_questions=len(questions))
+
+# Load the question file questions
 with open("ques.json") as question_file:
     questions = json.load(question_file)
 
