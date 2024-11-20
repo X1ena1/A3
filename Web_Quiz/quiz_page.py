@@ -18,7 +18,10 @@ USERS = {"port": "port123",
 
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
-    global question_num, score
+    
+    # Get the question number and score from the URL parameters
+    question_num = int(request.args.get('question_num', 0))
+    score = int(request.args.get('score', 0))
 
     #Check if not previously started and is continue
     if question_num >= len(questions):
@@ -28,7 +31,7 @@ def quiz():
     current_question = questions[question_num]
 
     if request.method == 'POST':
-        # Get the user's selected answer(s)
+        #Get the user's selected answer(s)
         selected_answer = request.form.get('options')
 
         if selected_answer == current_question['answer']:
@@ -38,7 +41,7 @@ def quiz():
         question_num += 1
 
         # Redirect to the next question
-        return redirect(url_for('quiz'))
+        return redirect(url_for('quiz', question_num=question_num, score=score))
 
     # Render the quiz question and options
     return render_template('quiz.html', num=question_num + 1,  # Show 1-based index
@@ -49,11 +52,11 @@ def quiz():
 #grabbing result and score
 @app.route('/result')
 def result():
-    global score, question_num
 
-    return render_template('result.html', score=score, num_questions=len(questions))
+    score = request.args.get('score', 0)
+    return render_template('result.html', score=score)
 
-# Load the question file questions
+# Load the question 
 with open("ques.json") as question_file:
     questions = json.load(question_file)
 
