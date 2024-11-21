@@ -81,7 +81,7 @@ def quiz():
         selected_answer = request.form.get('answer')
 
         # If answer is correct, increase score
-        if selected_answer == correct_answer:
+        if selected_answer.strip() == correct_answer.strip():
             session['score'] += 1  
 
         session['question_num'] = question_num + 1
@@ -97,7 +97,7 @@ def quiz():
                            question_num=session['question_num'])
 
         
-@app.route('/result')
+@app.route('/result', methods=['GET', 'POST'])
 def result():
     global leaderboard
 
@@ -110,12 +110,14 @@ def result():
 
     #AI helped apply calclation time taken to finish the quiz
     start_time = session.get('start_time', None)
-    if start_time is None:
-        time_taken = "N/A"
-    else:
+    time_taken = "N/A"
+    
+    if start_time:
         end_time = time.time()
         time_taken = round(end_time - start_time, 2) #allows to count in secons
-
+    else:
+        time_taken = "Time tracking error"
+        
     #If the user submits their name, save it to the leaderboard
     if request.method == 'POST':
         username = request.form['username']
@@ -151,17 +153,13 @@ def result():
 # Leaderboard Route
 @app.route('/leaderboard')
 def leaderboard_route():
-    return render_template('leaderboard.html', leaderboard=leaderboard)
+    return render_template('leaderboard.html')
 
 # Load the question file and convert it to a list
 with open("ques.json") as question_file:
     questions = json.load(question_file)
 
 question_list = list(questions.items())
-
-# Create some housekeeping variables
-score = 0
-question_num = 0
 
 # Run the application
 if __name__ == "__main__":
