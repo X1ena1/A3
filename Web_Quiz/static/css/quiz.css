@@ -1,25 +1,30 @@
 *{
     margin: 0;
-    box-sizing: border-box;
-    box-sizing: border-box;
     padding: 0;
-    outline: none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 body {
-    min-height: 100vh;
-    width: 100%;
-    background-color: #000;
-    background-image: url('/static/img/play.gif');
-    background-position: center;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/static/img/bluescreen.gif');
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: fixed ;
-    color: #fff;
-    padding: 0 8%;
 }
 
-input {
+body h2{
+    margin-top:0%;
+    width: 400px;
+    color: #fff;
+    text-align: center;
+}
+
+form input{
+    flex-direction: column;
     background: none;
     outline: none;
     border: none;
@@ -27,6 +32,11 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.POST {
+    color: #fff;
+    font-weight: 100;
 }
 
 button {

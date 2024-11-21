@@ -1,0 +1,51 @@
+/* leaderboard.css */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url('/static/img/bluescreen.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+}
+
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(255, 168, 168, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: transparent;
+    color: #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: transparent;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 50px;    
+    color: white;
+    font-weight: bold;
+}
+
+a:hover {
+    color: black;
+}

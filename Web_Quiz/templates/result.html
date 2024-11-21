@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}" type="text/css">
 </head>
 <body>
-    <h2>Your Quiz Result</h2>
-    <p>Your score: {{ score }} out of {{ total_questions }}</p>
-
-    <form action="{{ url_for('quiz') }}">
-        <button type="submit">Take Quiz Again</button>
-    </form>
-
-    <form action="{{ url_for('home') }}">
-        <button type="submit">Back to Homepage</button>
-    </form>
-</body>
-</html>
+    <body>
+        <h1>Quiz Results</h1>
+        <p>Your score: {{ score }} out of {{ total_questions }}</p>
+        <p>Time taken: {{ time_taken }} seconds</p>
+        <p>Your Rank: {{ rank }}</p>
+    
+        <form method="POST">
+            <label for="username">Enter your name for the leaderboard:</label>
+            <input type="text" name="username" id="username" required>
+            <button type="submit">Submit</button>
+        </form>
+    
+        <br>
+        <a href="{{ url_for('leaderboard_route') }}">View Leaderboard</a><br>
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </body>
+    </html>

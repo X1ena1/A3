@@ -1,57 +1,55 @@
-
-{ 
-        "How many SAW movies are there?": [
-            "10",
-            "4",
-            "12",
-            "6"
-        ],
-        "When was titanic released?": [
-            "1997",
-            "2001",
-            "2005",
-            "2003"
-        ],
-        "How many real killer ants where used in the set of the Scorpion King?": [
-            "20,000",
-            "60,000",
-            "9,000",
-            "40,000"
-        ],
-        "Who played Batman in the film?": [
-            "Robert Patterson",
-            "James Charles",
-            "Jack Black",
-            "Christopher Walken"
-        ],
-        "Which game has NOT had a movie adaption?" : [
-            "Grand Theft Auto",
-            "Resident Evil",
-            "Sonic",
-            "Minecraft"
-        ],
-        "Did Jackie Chan do all of his stunts?" : [
-            "Yes",
-            "No"
-        ],
-        "Did Disney buy the rights for the Marvel movies?" : [
-            "Yes",
-            "No"
-        ],
-        "What movie was NOT filmed in Hawai`i" : [
-            "Captain Ron",
-            "Jurassic Park",
-            "Godzilla",
-            "Soul Surfer"
-        ],
-        "What is the highest-grossing movie of all time?" : [
-            "Avatar",
-            "Joker"
-        ],
-        "How manny rules are there in Fight Club?" : [
-            "8",
-            "4",
-            "10",
-            "15"
-        ]
+{
+    "How many SAW movies are there?": [
+        "10", 
+        "4",
+        "12",
+        "6"],
+    "When was Titanic released?": [
+        "1997", 
+        "2001", 
+        "2005", 
+        "2003"
+    ],
+    "How many real killer ants were used in the set of The Scorpion King?": [
+        "20,000", 
+        "60,000", 
+        "9,000", 
+        "40,000"
+    ],
+    "Who played Batman in the film?": [
+        "Robert Patterson", 
+        "James Charles", 
+        "Jack Black", 
+        "Christopher Walken"
+    ],
+    "Which game has NOT had a movie adaption?": [
+        "Grand Theft Auto", 
+        "Resident Evil", 
+        "Sonic", 
+        "Minecraft"
+    ],
+    "Did Jackie Chan do all of his stunts?": [
+        "Yes", 
+        "No"
+    ],
+    "Did Disney buy the rights for the Marvel movies?": [
+        "Yes", 
+        "No"
+    ],
+    "What movie was NOT filmed in Hawai`i?": [
+        "Captain Ron", 
+        "Jurassic Park", 
+        "Godzilla", 
+        "Soul Surfer"
+    ],
+    "What is the highest-grossing movie of all time?": [
+        "Avatar", 
+        "Joker"
+    ],
+    "How many rules are there in Fight Club?": [
+        "8", 
+        "4", 
+        "10", 
+        "15"
+    ]
 }
