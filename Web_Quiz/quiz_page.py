@@ -161,6 +161,10 @@ with open("ques.json") as question_file:
 
 question_list = list(questions.items())
 
+#Housekeeping variable
+score = 0
+question_num = 0
+
 # Run the application
 if __name__ == "__main__":
     app.run(debug=True)
