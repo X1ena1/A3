@@ -5,11 +5,15 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.hero h1{
-    position:initial;
+h1{
     color: #fff;
-    font-size: 75px;
-    margin-top: 12%;
+    font-size: 80px;
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .hero{
@@ -25,10 +29,13 @@
 }
 
 nav {
-    display: flex;
+    display: grid;
+    margin: auto;
     align-items: center;
-    justify-content: space-evenly;
     padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 nav ul li{
@@ -38,7 +45,7 @@ nav ul li{
 }
 
 nav ul li a{
-    color: #fff;
+    color: red;
     text-decoration: none;
 }
 

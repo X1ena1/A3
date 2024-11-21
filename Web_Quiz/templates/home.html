@@ -13,9 +13,8 @@
         </div>
             <nav>
                 <ul>
-                    <button><li><a href="{{ url_for('quiz') }}" class="button">Start Quiz</a></li></button>
-                    <button><li><a href="login.html" class="button">Login</a></li></button>
-                    <button><li><a href="sign.html" class="button">Sign Up</a></li></button>
+                    <button><li><a href="{{ url_for('login') }}" class="button">Start Quiz</a></li></button>
+                    <button><li><a href="{{ url_for('quiz', guest=True ) }}" class="button">Guest</a></li></button>
                 </ul>
             </nav>
     </div>       
