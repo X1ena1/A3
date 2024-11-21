@@ -21,3 +21,20 @@ body form input {
     display: grid;
     justify-content: center;
 }
+
+button {
+    background: #fff;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+button :hover {
+    background: transparent;
+    color: #1c1b3a;
+    outline: 1px solid #fff;
+}
